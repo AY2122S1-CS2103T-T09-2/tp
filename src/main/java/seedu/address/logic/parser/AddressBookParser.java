@@ -24,6 +24,11 @@ public class AddressBookParser {
     private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
 
     /**
+     * Used for indicating that the command is for ModuleLesson and not for Person.
+     */
+    private static final String MODULE_LESSON_COMMAND_FLAG = "-l";
+
+    /**
      * Parses user input into command for execution.
      *
      * @param userInput full user input string
@@ -38,6 +43,7 @@ public class AddressBookParser {
 
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
+        boolean containsModuleLessonFlag = checkModuleLessonFlag(arguments);
         switch (CommandWord.getCommandType(commandWord)) {
 
         case ADD:
@@ -72,4 +78,8 @@ public class AddressBookParser {
         }
     }
 
+    private boolean checkModuleLessonFlag(String arguments) {
+        String firstThreeChars = arguments.substring(0, 3);
+        return firstThreeChars.contains(MODULE_LESSON_COMMAND_FLAG);
+    }
 }
