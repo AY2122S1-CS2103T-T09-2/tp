@@ -79,6 +79,9 @@ public class AddressBookParser {
     }
 
     private boolean checkModuleLessonFlag(String arguments) {
+        if (arguments.length() < 3) {
+            return false;
+        }
         String firstThreeChars = arguments.substring(0, 3);
         return firstThreeChars.contains(MODULE_LESSON_COMMAND_FLAG);
     }
