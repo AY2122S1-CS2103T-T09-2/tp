@@ -26,8 +26,8 @@ public class RemarkModuleLessonCommand extends Command {
     public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Lesson: %1$s";
     public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Lesson: %1$s";
     public static final String MESSAGE_USAGE = "remark"
-            + ": Edits the remark of the class identified "
-            + "by the index number used in the last class listing. "
+            + ": Edits the remark of the lesson identified "
+            + "by the index number used in the last lesson listing. "
             + "Existing remark will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "r/ [REMARK]\n"
@@ -39,7 +39,7 @@ public class RemarkModuleLessonCommand extends Command {
 
     /**
      * @param index index of the lesson in the filtered lesson list to edit the remark
-     * @param remark remark of the class to be updated to
+     * @param remark remark of the lesson to be updated to
      */
     public RemarkModuleLessonCommand(Index index, Remark remark) {
         requireAllNonNull(index, remark);
