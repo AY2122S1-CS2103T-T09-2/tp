@@ -38,7 +38,7 @@ public class RemarkModuleLessonCommand extends Command {
     private Remark remark;
 
     /**
-     * @param index index of the person in the filtered lesson list to edit the remark
+     * @param index index of the lesson in the filtered lesson list to edit the remark
      * @param remark remark of the class to be updated to
      */
     public RemarkModuleLessonCommand(Index index, Remark remark) {
@@ -53,7 +53,7 @@ public class RemarkModuleLessonCommand extends Command {
         List<ModuleLesson> lastShownList = model.getFilteredModuleLessonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_LESSON_DISPLAYED_INDEX);
         }
 
         ModuleLesson lessonToEdit = lastShownList.get(index.getZeroBased());

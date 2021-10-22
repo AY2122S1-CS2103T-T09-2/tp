@@ -30,7 +30,7 @@ public enum CommandWord {
     EDIT_PERSON("edit", "update", "e"),
     FIND_PERSON("find", "f"),
     LIST_PERSON("list", "ls"),
-    REMARK_PERSON("remark"),
+    REMARK_PERSON("remark", "r"),
     REMARK_MODULE_LESSON("remarkc", "rc");
 
     private static final Map<CommandWord, ArrayList<String>> ALIAS_MAP;
