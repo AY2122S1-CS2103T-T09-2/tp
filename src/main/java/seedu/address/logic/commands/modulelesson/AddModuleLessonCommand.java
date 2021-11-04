@@ -31,6 +31,7 @@ public class AddModuleLessonCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New lesson added: %1$s";
     public static final String MESSAGE_DUPLICATE_LESSON = "This lesson already exists in contHACKS";
+    public static final String MESSAGE_OVERLAPPING_LESSON = "Another lesson with overlapping timings exists";
 
     private final ModuleLesson toAdd;
 
@@ -48,6 +49,10 @@ public class AddModuleLessonCommand extends Command {
 
         if (model.hasModuleLesson(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_LESSON);
+        }
+
+        if (model.hasOverlappingLessonTime(toAdd)) {
+            throw new CommandException(MESSAGE_OVERLAPPING_LESSON);
         }
 
         model.addLesson(toAdd);

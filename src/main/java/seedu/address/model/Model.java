@@ -70,6 +70,11 @@ public interface Model {
     boolean hasModuleLesson(ModuleLesson moduleLesson);
 
     /**
+     * Returns true if a module lesson with overlapping timings as {@code moduleLesson} exists in contHACKS.
+     */
+    boolean hasOverlappingLessonTime(ModuleLesson moduleLesson);
+
+    /**
      * Deletes the given person.
      * The person must exist in contHACKS.
      */

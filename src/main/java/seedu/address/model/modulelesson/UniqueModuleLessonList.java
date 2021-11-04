@@ -30,7 +30,7 @@ public class UniqueModuleLessonList implements Iterable<ModuleLesson> {
     /**
      * Returns true if the list contains lesson that have clashing lesson timings.
      */
-    private boolean hasOverlappingLessonTime(ModuleLesson toCheck) {
+    public boolean hasOverlappingLessonTime(ModuleLesson toCheck) {
         requireNonNull(toCheck);
         return internalList.stream().anyMatch(toCheck::hasOverlappingLessonTime);
     }

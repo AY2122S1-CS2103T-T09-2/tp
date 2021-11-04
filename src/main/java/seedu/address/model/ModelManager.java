@@ -114,6 +114,12 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasOverlappingLessonTime(ModuleLesson moduleLesson) {
+        requireNonNull(moduleLesson);
+        return conthacks.hasOverlappingLessonTime(moduleLesson);
+    }
+
+    @Override
     public void deletePerson(Person target) {
         conthacks.removePerson(target);
     }

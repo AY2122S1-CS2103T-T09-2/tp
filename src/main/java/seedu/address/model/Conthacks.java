@@ -98,6 +98,14 @@ public class Conthacks implements ReadOnlyConthacks {
     }
 
     /**
+     * Returns true if a lesson with overlapping timing as {@code ModuleLesson} exists in the address book.
+     */
+    public boolean hasOverlappingLessonTime(ModuleLesson moduleLesson) {
+        requireNonNull(moduleLesson);
+        return moduleLessons.hasOverlappingLessonTime(moduleLesson);
+    }
+
+    /**
      * Adds a person to the address book.
      * The person must not already exist in the address book.
      */
@@ -190,4 +198,5 @@ public class Conthacks implements ReadOnlyConthacks {
     public void clearLessonList() {
         setModuleLessons(new ArrayList<>());
     }
+
 }

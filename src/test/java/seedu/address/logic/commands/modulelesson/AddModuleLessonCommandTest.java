@@ -148,6 +148,11 @@ public class AddModuleLessonCommandTest {
         }
 
         @Override
+        public boolean hasOverlappingLessonTime(ModuleLesson lesson) {
+            throw new AssertionError("This method should not be called");
+        }
+
+        @Override
         public void deletePerson(Person target) {
             throw new AssertionError("This method should not be called.");
         }
@@ -226,6 +231,12 @@ public class AddModuleLessonCommandTest {
         public boolean hasModuleLesson(ModuleLesson moduleLesson) {
             requireNonNull(moduleLesson);
             return moduleLessonsAdded.stream().anyMatch(moduleLesson::isSameModuleLesson);
+        }
+
+        @Override
+        public boolean hasOverlappingLessonTime(ModuleLesson moduleLesson) {
+            requireNonNull(moduleLesson);
+            return moduleLessonsAdded.stream().anyMatch(moduleLesson::hasOverlappingLessonTime);
         }
 
         @Override
