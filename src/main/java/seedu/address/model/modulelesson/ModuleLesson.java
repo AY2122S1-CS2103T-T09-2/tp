@@ -72,6 +72,17 @@ public class ModuleLesson {
     }
 
     /**
+     * Returns true if both lessons have clashes in timings.
+     */
+    public boolean hasOverlappingLessonTime(ModuleLesson otherModuleLesson) {
+        if (getDay().equals(otherModuleLesson.getDay())) {
+            return getLessonStartTime().value.isBefore(otherModuleLesson.getLessonEndTime().value)
+                && otherModuleLesson.getLessonStartTime().value.isBefore(getLessonEndTime().value);
+        }
+        return false;
+    }
+
+    /**
      * Returns true if both lessons have the same identity and data fields.
      * This defines a stronger notion of equality between two moduleLessons.
      */

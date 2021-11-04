@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.modulelesson.exceptions.DuplicateModuleLessonException;
 import seedu.address.model.modulelesson.exceptions.ModuleLessonNotFoundException;
+import seedu.address.model.modulelesson.exceptions.OverlappingModuleLessonTimeException;
 
 public class UniqueModuleLessonList implements Iterable<ModuleLesson> {
 
@@ -27,6 +28,14 @@ public class UniqueModuleLessonList implements Iterable<ModuleLesson> {
     }
 
     /**
+     * Returns true if the list contains lesson that have clashing lesson timings.
+     */
+    private boolean hasOverlappingLessonTime(ModuleLesson toCheck) {
+        requireNonNull(toCheck);
+        return internalList.stream().anyMatch(toCheck::hasOverlappingLessonTime);
+    }
+
+    /**
      * Adds a lesson to the list.
      * The lesson must not already exist in the list.
      */
@@ -34,6 +43,8 @@ public class UniqueModuleLessonList implements Iterable<ModuleLesson> {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
             throw new DuplicateModuleLessonException();
+        } else if (hasOverlappingLessonTime(toAdd)) {
+            throw new OverlappingModuleLessonTimeException();
         }
         internalList.add(toAdd);
     }
