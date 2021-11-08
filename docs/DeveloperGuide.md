@@ -629,7 +629,7 @@ testers are expected to do more *exploratory* testing.
    Expected: The day of the first lesson shown in contHACKS will be changed to `Wednesday`
 
 3. Test case: `editc -1 d/3`<br>
-   Expected: An error message will be shown in the result display, showing that the index provided is invalid. The words in the command box will turn red.
+   Expected: An error message will be shown in the result display. The words in the command box will turn red.
 
 ### Deleting a person
 
